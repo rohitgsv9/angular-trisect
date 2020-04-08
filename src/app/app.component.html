@@ -1,0 +1,73 @@
+<!-- interpolation -->
+<h2>hello {{title}}</h2>
+{{4+6}}
+<h2>{{"hello " + " rko " + title}}</h2>
+<h2>{{title.length}}</h2>
+<h2>{{title.toUpperCase()}}</h2>
+<h2>{{fn()}}</h2>
+<h2>{{siteUrl}}</h2>
+
+<!-- prperty binding -->
+<input [id]="myid" type="text" value="rko">
+<input [disabled]="isDisabled" id={{myid}} type="text">
+<button class="btn btn-dark">reset</button>
+
+<!-- class binding -->
+<h2 class="text-success">{{title}} HEllo</h2>
+<h2 [class]='sclass'> {{title}} rko</h2>
+<h2 [class.text-danger]="hasherror"> {{title}} hello </h2>
+<h2 [class]="isSpecial">Hello</h2>
+<h3 [ngClass]="messageClass">heading</h3>
+
+
+<!-- style binding -->
+<h3 [style.color]="'blue'">Style Binding</h3>
+<h3 [style.color]="hasherror? 'red': 'green' "> text </h3>
+<h3 [style.color]="sbind">text here</h3>
+<h3 [ngStyle]="titlestyle"> text here</h3>
+
+<!-- event binding -->
+<button (click)="onClick()"  class="btn btn-primary">clck me</button>
+<h2>{{no}}</h2>
+<button (click)="no='hello no '"  class="btn btn-primary">clck me</button>
+
+<!-- template refernce variable -->
+<input #myId type="text" value="">
+<button (click)="fn1(myId.value)">click</button>
+
+<br>
+<!-- two-way data binding -->
+<input  type="text" [(ngModel)]="p">
+{{p}}
+<button [disabled]="p==''" (click)="p=''">Search</button>
+
+<!-- ngIf -->
+<h4 *ngIf="true"> this is ngIf</h4>
+<h4 *ngIf="isDis; else e">partition 1</h4>
+<ng-template #e><h4>another partition</h4></ng-template>
+
+<div *ngIf="isDis; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock><h4>then block</h4></ng-template>
+<ng-template #elseBlock><h4>else Block</h4></ng-template>
+
+
+<!-- ngSwitch -->
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">you selecting red</div>
+    <div *ngSwitchCase="'blue'">you selecting blue</div>
+    <div *ngSwitchCase="'green'">you selecting green</div>
+    <div *ngSwitchDefault> pick again</div>
+</div>
+<br>
+
+<!-- ngFor -->
+<div *ngFor="let col of colors; index as i">
+    <h4>{{i+1}} {{col}}</h4>
+</div>
+
+
+
+<br><br>
+<h1>{{message}}</h1>
+<app-test (childEvent)="message=$event" [parentData]="name"></app-test>
+<!-- <router-outlet ></router-outlet> -->

@@ -1,0 +1,35 @@
+<p>test works!</p>
+<!-- component interaction -->
+<h2>{{ "Hello " + parentData}}</h2>
+<h3>{{ name}}</h3>
+<button (click)="fireEvent()" class="btn btn-primary">event</button>
+
+<!-- pipe -->
+<h3>{{ name | lowercase}}</h3>
+<h3>{{ name | uppercase}}</h3>
+<h3>{{ message | titlecase}}</h3>
+<h3>{{ name | slice:2}}</h3>
+<h3>{{ person | json}}</h3> 
+<h3>{{ 5.678 | number:'1.2-3'}}</h3>
+<h3>{{ 5.678 | number:'3.4-5'}}</h3>
+<h3>{{ 5.678 | number:'2.1-2'}}</h3>
+<h3>{{ 2311/5130 | percent}}</h3>
+<h3>{{ 30 | currency }}</h3>
+<h3>{{ 30 | currency:'EUR' }}</h3>
+<h3>{{ 30 | currency:'GBP':'code' }}</h3>
+<h3>{{ date }}</h3>
+<h3>{{ date | date }}</h3>
+<h3>{{ date | date:'shortDate' }}</h3>
+<h3>{{ date | date:'shortTime' }}</h3>
+
+
+<!-- service -->
+<h2>Employee List</h2>
+<ul *ngFor="let a of person1">
+    <li>{{a.name}}</li>
+</ul>
+<h2>Employee Details</h2>
+<ul *ngFor="let p of person1">
+    <li>{{p.ID}}. {{p.name}} - {{p.Age}}</li>
+</ul>
+
